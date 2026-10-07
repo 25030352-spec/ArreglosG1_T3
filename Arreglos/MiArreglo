@@ -3,8 +3,33 @@ using System;
 
 namespace Arreglos.logica
 {
-    public class MiArreglo
-    {
-      
-    }
+  
+        private int[] _arreglo;
+        private int _tope;
+
+        // Constructor
+        public MiArreglo(int n)
+        {
+            N = n;
+            _arreglo = new int[N];
+            _tope = 0;
+        }
+
+        // Propiedades
+        public int N { get; }
+        public bool EstaLleno => _tope == N;
+        public bool EstaVacio => _tope == 0;
+ // Método llenar
+        public void Llenar(int minimo, int maximo)
+        {
+            Random orandom = new Random();
+
+            for (int i = 0; i < N; i++)
+            {
+                _arreglo[i] = orandom.Next(minimo, maximo + 1);
+            }
+
+            _tope = N;
+        }
+
 }
